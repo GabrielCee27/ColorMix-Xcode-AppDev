@@ -14,7 +14,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        colorView.layer.borderWidth = 3;
+        colorView.layer.cornerRadius = 20;
+        colorView.layer.borderColor = UIColor.black.cgColor;
+        
         updateColor();
+        updateControls();
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,12 +57,19 @@ class ViewController: UIViewController {
         colorView.backgroundColor = color;
     }
     
+    func updateControls(){
+        redSlider.isEnabled = redSwitch.isOn;
+        greenSlider.isEnabled = greenSwitch.isOn;
+        blueSlider.isEnabled = blueSwitch.isOn;
+    }
+    
     @IBAction func sliderChanged(_ sender: Any) {
         updateColor();
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
         updateColor();
+        updateControls();
     }
  
     @IBAction func reset(_ sender: Any) {
@@ -76,6 +88,7 @@ class ViewController: UIViewController {
         }
         
         updateColor();
+        updateControls();
     }
     
 }
