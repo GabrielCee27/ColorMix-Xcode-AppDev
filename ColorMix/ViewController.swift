@@ -60,5 +60,23 @@ class ViewController: UIViewController {
         updateColor();
     }
  
+    @IBAction func reset(_ sender: Any) {
+        redSlider.value = 1;
+        greenSlider.value = 1;
+        blueSlider.value = 1;
+        
+        if redSwitch.isOn {
+            redSwitch.isOn = false;
+        }
+        if greenSwitch.isOn {
+            greenSwitch.isOn = false;
+        }
+        if blueSwitch.isOn {
+            blueSwitch.isOn = false;
+        }
+        
+        updateColor();
+    }
+    
 }
 
